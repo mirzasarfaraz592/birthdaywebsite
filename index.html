@@ -80,26 +80,23 @@
             </div>
 
             <div class="cake-stage">
-                <div class="cake-scene" id="cakeScene">
-                    <div class="candles-row" id="candlesRow">
+                <div class="cake-scene" id="cakeScene" style="width: 100%; max-width: 400px; height: auto; transform: scale(1); margin-top: 0;">
+                    <div class="candles-row" id="candlesRow" style="display: none;">
                         <div class="candle-unit" data-candle="1" title="Click to blow out"><div class="candle-flame"></div><div class="candle-wick"></div></div>
                         <div class="candle-unit" data-candle="2" title="Click to blow out"><div class="candle-flame"></div><div class="candle-wick"></div></div>
                         <div class="candle-unit" data-candle="3" title="Click to blow out"><div class="candle-flame"></div><div class="candle-wick"></div></div>
                         <div class="candle-unit" data-candle="4" title="Click to blow out"><div class="candle-flame"></div><div class="candle-wick"></div></div>
                         <div class="candle-unit" data-candle="5" title="Click to blow out"><div class="candle-flame"></div><div class="candle-wick"></div></div>
                     </div>
-                    <div class="cake-layer cake-layer-top"><div class="cake-icing"></div></div>
-                    <div class="cake-layer cake-layer-middle"><div class="cake-icing"></div></div>
-                    <div class="cake-layer cake-layer-bottom"><div class="cake-icing"></div></div>
-                    <div class="cake-plate"></div>
+                    <img src="birthday_cake.jpeg" alt="Birthday Cake" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); object-fit: cover;">
                 </div>
 
                 <div class="cake-controls">
-                    <button class="btn-primary" id="blowCandlesBtn"><span>💨 Blow Out All Candles</span></button>
-                    <button class="btn-secondary" id="relightCandlesBtn"><span>✨ Relight Candles</span></button>
+                    <button class="btn-primary" id="blowCandlesBtn" style="display: none;"><span>💨 Blow Out All Candles</span></button>
+                    <button class="btn-secondary" id="relightCandlesBtn" style="display: none;"><span>✨ Relight Candles</span></button>
                     <button class="btn-secondary" id="cutCakeBtn"><span>🔪 Cut Cake</span></button>
                 </div>
-                <div class="cake-status" id="cakeStatus">Make a secret wish before blowing the candles, my love! 🕯️</div>
+                <div class="cake-status" id="cakeStatus" style="display: none;">Make a secret wish before blowing the candles, my love! 🕯️</div>
             </div>
         </section>
 
@@ -175,8 +172,8 @@
             </div>
             <div class="video-card-stage">
                 <div class="video-frame-wrapper" id="videoWrapper">
-                    <video id="birthdayVideo" class="birthday-video-element" loop playsinline controls poster="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1000&auto=format&fit=crop&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-romantic-couple-looking-at-the-sunset-4122-large.mp4" type="video/mp4">
+                    <video id="birthdayVideo" class="birthday-video-element" autoplay muted loop playsinline controls>
+                        <source src="birthdaygirl.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -209,17 +206,23 @@
             <div class="polaroid-grid" id="polaroidGrid">
                 <div class="polaroid-card">
                     <div class="washi-tape"></div>
-                    <div class="polaroid-img-box"><div class="polaroid-placeholder">💖</div></div>
+                    <div class="polaroid-img-box">
+                        <img src="first_meet.jpg" alt="First Meet" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <div class="polaroid-caption">First Met</div>
                 </div>
                 <div class="polaroid-card">
                     <div class="washi-tape"></div>
-                    <div class="polaroid-img-box"><div class="polaroid-placeholder">💍</div></div>
-                    <div class="polaroid-caption">The Wedding</div>
+                    <div class="polaroid-img-box">
+                        <img src="best_moment.jpg" alt="Best Moment" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="polaroid-caption">Best Moment</div>
                 </div>
                 <div class="polaroid-card">
                     <div class="washi-tape"></div>
-                    <div class="polaroid-img-box"><div class="polaroid-placeholder">✈️</div></div>
+                    <div class="polaroid-img-box">
+                        <video src="khassvideo.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+                    </div>
                     <div class="polaroid-caption">Our Trips</div>
                 </div>
                 <div class="polaroid-card">

@@ -28,7 +28,7 @@ class SoundEngine {
     }
 
     setMode(mode) {
-        this.customAudioUrl = mode === 'dark' ? 'birthday-song.webm' : 'light-song.webm';
+        this.customAudioUrl = 'birthday-song.webm';
         if (this.customAudio) {
             const wasPlaying = !this.customAudio.paused && this.isPlayingMusic;
             this.customAudio.src = this.customAudioUrl;
