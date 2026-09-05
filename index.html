@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love! ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body data-theme="midnight" data-mode="dark">
+    <!-- Magical Stars Background (Dark Mode only) -->
+    <div id="stars-container"></div>
+
+    <!-- DOB Lock Screen -->
+    <div id="lockScreen" class="lock-screen-overlay">
+        <div class="lock-card">
+            <h2>🔒 Secret Surprise!</h2>
+            <p>Please enter your Date of Birth to unlock this magical gift.</p>
+            <div class="dob-inputs">
+                <input type="number" id="dobDay" placeholder="DD" min="1" max="31">
+                <input type="number" id="dobMonth" placeholder="MM" min="1" max="12">
+                <input type="number" id="dobYear" placeholder="YYYY" min="1900" max="2026">
+            </div>
+            <button id="unlockBtn" class="btn-primary"><span>Unlock Magic ✨</span></button>
+            <p id="lockError" class="lock-error"></p>
+        </div>
+    </div>
+
+    <div class="floating-controls">
+        <button id="musicToggleBtn" class="floating-music-btn" title="Toggle Music">🔊</button>
+        <button id="themeToggleBtn" class="floating-theme-btn" title="Toggle Light/Dark Mode">🌙</button>
+    </div>
+
+    <canvas id="confettiCanvas"></canvas>
+    <div id="balloonContainer"></div>
+
+    <!-- 3-Photo Background Collage -->
+    <div class="bg-collage">
+        <div class="bg-left"></div>
+        <div class="bg-center"></div>
+        <div class="bg-right"></div>
+    </div>
+
+    <main class="main-wrapper" id="mainWrapper">
+        <!-- Top Video Section -->
+        <section class="top-video-section" style="width: 100%; max-width: 800px; margin: 0 auto 2rem auto; text-align: center; padding-top: 2rem; padding-bottom: 1rem;">
+            <video id="topBirthVideo" class="top-video-element" src="nisba.mp4" controls playsinline style="width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(255,105,180,0.3); border: 2px solid rgba(255,255,255,0.1);"></video>
+        </section>
+
+        <section class="hero-section">
+            <div class="birthday-badge">✨ My Beautiful Nisba Mirza's Special Day ✨</div>
+            <h1 class="hero-title">
+                Happy Birthday, <span class="name-highlight" id="heroName">Jaan</span>! ❤️
+            </h1>
+            <p class="hero-tagline" id="heroTagline">
+                Wishing the queen of my heart a day as beautiful, bright, and wonderful as she is. My life is perfect because you are in it! 🌟
+            </p>
+            <div class="celebrate-actions">
+                <button class="btn-primary" id="scrollCakeBtn">
+                    <span>🎂 Blow Candles</span>
+                </button>
+                <button class="btn-secondary" id="scrollShayariBtn">
+                    <span>📜 Love Shayari</span>
+                </button>
+                <button class="btn-secondary" id="scrollLoveBtn">
+                    <span>💖 True Feelings</span>
+                </button>
+                <button class="btn-secondary" id="scrollVideoBtn">
+                    <span>🎬 Our Moments</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Interactive Cake & Candle Stage -->
+        <section class="section-container" id="cakeSection">
+            <div class="section-header">
+                <h2>🎂 The Birthday Cake Ceremony</h2>
+                <p>Click individual candles to blow them out or use the magic button!</p>
+            </div>
+
+            <div class="cake-stage">
+                <div class="cake-scene" id="cakeScene">
+                    <div class="candles-row" id="candlesRow">
+                        <div class="candle-unit" data-candle="1" title="Click to blow out"><div class="candle-flame"></div><div class="candle-wick"></div></div>
+                        <div class="candle-unit" data-candle="2" title="Click to blow out"><div class="candle-flame"></div><div class="candle-wick"></div></div>
+                        <div class="candle-unit" data-candle="3" title="Click to blow out"><div class="candle-flame"></div><div class="candle-wick"></div></div>
+                        <div class="candle-unit" data-candle="4" title="Click to blow out"><div class="candle-flame"></div><div class="candle-wick"></div></div>
+                        <div class="candle-unit" data-candle="5" title="Click to blow out"><div class="candle-flame"></div><div class="candle-wick"></div></div>
+                    </div>
+                    <div class="cake-layer cake-layer-top"><div class="cake-icing"></div></div>
+                    <div class="cake-layer cake-layer-middle"><div class="cake-icing"></div></div>
+                    <div class="cake-layer cake-layer-bottom"><div class="cake-icing"></div></div>
+                    <div class="cake-plate"></div>
+                </div>
+
+                <div class="cake-controls">
+                    <button class="btn-primary" id="blowCandlesBtn"><span>💨 Blow Out All Candles</span></button>
+                    <button class="btn-secondary" id="relightCandlesBtn"><span>✨ Relight Candles</span></button>
+                    <button class="btn-secondary" id="cutCakeBtn"><span>🔪 Cut Cake</span></button>
+                </div>
+                <div class="cake-status" id="cakeStatus">Make a secret wish before blowing the candles, my love! 🕯️</div>
+            </div>
+        </section>
+
+        <!-- 📜 Birthday Shayari & Poetry Section -->
+        <section class="section-container" id="shayariSection">
+            <div class="section-header">
+                <h2>📜 Words of My Heart</h2>
+                <p>Dil ke jazbaat, sirf tumhare liye (Choose Language)</p>
+            </div>
+
+            <div class="shayari-tabs" id="shayariTabs">
+                <button class="shayari-tab active" data-lang="hindi">Hindi</button>
+                <button class="shayari-tab" data-lang="urdu">Urdu</button>
+                <button class="shayari-tab" data-lang="english">English</button>
+            </div>
+
+            <div class="shayari-card">
+                <div class="shayari-quote-badge">✨ For My Beautiful Nisba Mirza ✨</div>
+                <div class="shayari-text" id="shayariTextDisplay">
+                    <!-- Text will be inserted dynamically -->
+                </div>
+                <div class="shayari-controls">
+                    <button class="btn-primary" id="nextShayariBtn"><span>🔄 Next Quote</span></button>
+                    <button class="btn-secondary" id="copyShayariBtn"><span>📋 Copy to Clipboard</span></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 💖 Love Text & Special Feelings Section -->
+        <section class="section-container" id="loveSection">
+            <div class="section-header">
+                <h2>💖 Words of True Love & Care</h2>
+                <p>A little reminder of how deeply you are cherished</p>
+            </div>
+
+            <div class="love-card">
+                <div class="love-header">
+                    <span class="love-heart-icon">💖</span>
+                    <h3 class="love-title">My love ❤️</h3>
+                </div>
+                <p class="love-message-content" id="loveMessageText">
+                    I don’t know when you became so special to me. All I know is that now, my every happiness is connected to you. Talking to you, caring for you, and seeing you smile gives my heart a different kind of peace. 🥹❤️<br><br>
+                    I don’t just love you, I truly cherish you with all my heart… every day, every moment, and in every situation. And my love for you keeps growing with every passing moment. ❤️<br><br>
+                    You have become my morning need, my evening desire, my night’s sweetest wish, and the reason my days feel so beautiful. Aye hayee… 🥹❤️ I can’t even explain how beautiful life feels with you in it.<br><br>
+                    I just want us to get married as soon as possible, so we can finally be together and become one. ❤️🥺<br><br>
+                    I love, love, love you, my jaan. ❤️<br><br>
+                    My baby 🥹<br>
+                    My Betu ❤️<br>
+                    My wife 💍<br>
+                    My soul 🤍<br>
+                    A piece of my heart ❤️<br>
+                    My Khareja 🥰<br>
+                    My cuteness 😍<br>
+                    My happiness ❤️<br>
+                    My attitude 😅<br>
+                    My everything. 🫶🏻❤️<br><br>
+                    I love you endlessly, meri jaan. ❤️🥹
+                </p>
+                <div class="love-tags-row">
+                    <span class="love-tag">🌸 My Beautiful Nisba Mirza</span>
+                    <span class="love-tag">🌟 My Biggest Support</span>
+                    <span class="love-tag">🎂 Soulmate</span>
+                    <span class="love-tag">💎 Queen of my Heart</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🎬 Birthday Celebration Video Section -->
+        <section class="section-container" id="videoSection">
+            <div class="section-header">
+                <h2>🎬 Sweet Memories</h2>
+                <p>A visual treat to make you smile</p>
+            </div>
+            <div class="video-card-stage">
+                <div class="video-frame-wrapper" id="videoWrapper">
+                    <video id="birthdayVideo" class="birthday-video-element" loop playsinline controls poster="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1000&auto=format&fit=crop&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-romantic-couple-looking-at-the-sunset-4122-large.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="video-caption-text">🎉 Every sunset with you is a blessing! 🌟</p>
+            </div>
+        </section>
+
+        <!-- Heartfelt Letter & Wishes -->
+        <section class="section-container" id="letterSection">
+            <div class="section-header">
+                <h2>💌 A Special Note For You</h2>
+                <p>Penned with pure love and devotion.</p>
+            </div>
+            <div class="letter-wrapper">
+                <div class="letter-decor-top">
+                    <span class="letter-badge">Dearest <span id="letterRecipient">Nisba Mirza</span>,</span>
+                    <span class="letter-stamp">🌟 🎂 💖</span>
+                </div>
+                <div class="letter-body" id="letterBody"></div>
+                <div class="letter-sign" id="letterSign">With endless love, Yours Forever ✨</div>
+            </div>
+        </section>
+
+        <!-- Memory Lane Polaroid Gallery -->
+        <section class="section-container" id="gallerySection">
+            <div class="section-header">
+                <h2>📸 Our Memory Lane</h2>
+                <p>Our beautiful journey together.</p>
+            </div>
+            <div class="polaroid-grid" id="polaroidGrid">
+                <div class="polaroid-card">
+                    <div class="washi-tape"></div>
+                    <div class="polaroid-img-box"><div class="polaroid-placeholder">💖</div></div>
+                    <div class="polaroid-caption">First Met</div>
+                </div>
+                <div class="polaroid-card">
+                    <div class="washi-tape"></div>
+                    <div class="polaroid-img-box"><div class="polaroid-placeholder">💍</div></div>
+                    <div class="polaroid-caption">The Wedding</div>
+                </div>
+                <div class="polaroid-card">
+                    <div class="washi-tape"></div>
+                    <div class="polaroid-img-box"><div class="polaroid-placeholder">✈️</div></div>
+                    <div class="polaroid-caption">Our Trips</div>
+                </div>
+                <div class="polaroid-card">
+                    <div class="washi-tape"></div>
+                    <div class="polaroid-img-box"><div class="polaroid-placeholder">🏡</div></div>
+                    <div class="polaroid-caption">Our Beautiful Home</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Virtual Wish Wall -->
+        <section class="section-container" id="wishesWallSection">
+            <div class="section-header">
+                <h2>🎈 Love Notes Wall</h2>
+                <p>Leave a romantic note for the birthday girl!</p>
+            </div>
+            <div class="wish-wall-container">
+                <form class="wish-input-bar" id="wishForm">
+                    <input type="text" id="customWishInput" class="wish-input" placeholder="Type a romantic wish..." maxlength="120" required>
+                    <button type="submit" class="btn-primary"><span>Post Wish 🚀</span></button>
+                </form>
+                <div class="wishes-stream" id="wishesStream"></div>
+            </div>
+        </section>
+
+        <!-- --- Surprise Gift Section --- -->
+        <section class="section-container" id="giftSection">
+            <div class="section-header">
+                <h2>A Special Surprise 🎁</h2>
+                <p>Tap the gift box to reveal your present!</p>
+            </div>
+            
+            <div class="gift-stage">
+                <div class="gift-box-container" id="giftBoxBtn">
+                    <div class="gift-lid">
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                        <div class="gift-bow left"></div>
+                        <div class="gift-bow right"></div>
+                    </div>
+                    <div class="gift-box">
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                    </div>
+                </div>
+                
+                <div class="gift-message hidden" id="giftMessage">
+                    <h3 class="gift-title">Mera Sabse Bada Promise ✨</h3>
+                    <p>Meri jaan, main aaj tumse ek waada karta hoon. Chahe halaat jaise bhi hon, main hamesha tumhare sath khada rahunga. Tumhari care karna, tumhe har khushi dena meri life ka sabse bada mission hai. Duniya mein chahe jo ho jaye, main promise karta hoon ki shadi toh main sirf aur sirf tumse hi karunga. Main tumhare liye sabse best aur sabse different insaan bankar dikhaunga, taaki tumhe hamesha is baat par naaz ho ki main tumhara hoon. Tum meri zindagi ka wo eklauta sach ho, jiske bina mera koi wajood nahi.</p>
+                    <p class="gift-ps">I Love You Nisba, forever and always! 💖 (Aur haan, real gift bhi wait kar raha hai 😉)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Send Love Back / Thank You Section -->
+        <section class="section-container" id="thankYouSection">
+            <div class="section-header">
+                <h2>💬 Send Love Back</h2>
+                <p>Did you like the surprise? Send a quick message to your loving husband!</p>
+            </div>
+            <div class="thank-you-card">
+                <textarea id="thankYouMsg" class="wish-input" rows="3" placeholder="Type your thank you message here..."></textarea>
+                <div class="thank-you-actions">
+                    <a href="#" id="sendWaBtn" target="_blank" class="btn-primary" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                        <span>🟢 Send via WhatsApp</span>
+                    </a>
+                    <a href="#" id="sendSmsBtn" class="btn-secondary">
+                        <span>💬 Send via SMS</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toastMsg" class="toast-msg">Copied to clipboard! ✨</div>
+
+    <footer class="footer">
+        <p>Created with <span class="footer-heart">❤️</span> for the best girl in the world</p>
+    </footer>
+
+    <script src="audio-fx.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
